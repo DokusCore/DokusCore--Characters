@@ -10,14 +10,12 @@ RegisterNetEvent('DokusCore:Characters:Start', function()
   if (not (CamCampSet)) then SetCampCamera() end
   SetNuiFocus(true, true)
   SpawnPlayerPeds(CharData)
-  LoadAllPlayerPedSkins(CharData)
+  LoadAllPlayerPedSkins(CharData) Wait(4000)
+  TriggerEvent('DokusCore:Clothing:NPC:Load:Clothing', NPCs, CharData)
   NetworkGhosting(PedID(), true)
   SendPedToCamp(PedID())
   UIFadeIn(5000)
-  TriggerEvent('DokusCore:Characters:SendWaring')
   WalkPlayerPedsToPosition()
-  -- SendNUIMessage({ Type = 'Reload' }) Wait(500)
-  -- SendNUIMessage({ Type = 'Show',   Time = 3000 })
   TaskPlayerPedsToScenario()
   if (not (CamPedsSet)) then CreatePedCams() Wait(8000) end
   SendNUIMessage({ Type = 'Hide', Time = 500 }) Wait(500)
@@ -31,12 +29,7 @@ RegisterNetEvent('DokusCore:Characters:BackToCamp', function()
 end)
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-RegisterNetEvent('DokusCore:Characters:SendWaring', function()
-    DisplayHud(true)
-    NoteObjective('WARNING', 'Only make 1 character per server login! Making a 2nd character on the same login will break the skin creator!', 'Horn', 10000)
-    NoteObjective('WARNING', 'We are investigating the issue and patch it in a later version!', 'Horn', 7000) Wait(1000)
-    DisplayHud(false)
-end)
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
