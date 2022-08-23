@@ -20,7 +20,6 @@ server_scripts { '[ Core ]/[ Server ]/*.lua' }
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 shared_script {
-  -- 'Config.lua', -- For development only -- Leave it off!
   '@DokusCore/[ Configs ]/[ Core ]/Core.lua',
   '@DokusCore/[ Core ]/[ System ]/[ Shared ]/CBSystem.lua',
   '@DokusCore/[ Configs ]/[ Modules ]/Characters.lua',
